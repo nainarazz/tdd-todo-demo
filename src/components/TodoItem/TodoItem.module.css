@@ -1,8 +1,18 @@
 .itemContainer {
     display: flex;
     justify-content: space-between; 
+    margin: 15px 0;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+.closeBtn {
+    color: red;
+    font-weight: 800;
+}
+
+.closeBtn:hover {
+    cursor: pointer;
 }
