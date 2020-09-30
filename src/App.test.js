@@ -5,6 +5,7 @@ import mockData from './mockData';
 
 describe("<App /> test", () => {
   beforeEach(() => fetchMock.resetMocks())
+  
   it("should render <App /> component", async () => {
     fetchMock.once(JSON.stringify(mockData))
     render(<App />);
@@ -35,5 +36,13 @@ describe("<App /> test", () => {
     await waitForElementToBeRemoved(() => screen.getByText(/saving/i));
     expect(screen.getByText(/Do math homework/i)).toBeInTheDocument();
 
+  });
+
+  it("remove todo from list", async () => {
+    fetchMock.once(JSON.stringify(mockData))
+    render(<App />);
+    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
+    fireEvent.click(screen.getByTestId('3'));
+    expect(screen.queryByText(/fugiat veniam minus/i)).not.toBeInTheDocument();
   });
 });

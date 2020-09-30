@@ -36,6 +36,10 @@ function App() {
     setNewTodo(value);
   }
 
+  function removeTodo(id) {
+    setTodos(todos.filter(t => t.id !== id))
+  }
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -51,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <h1>My todo list</h1>
-      {loading ? "Loading" : <TodoList todos={todos} />}
+      {loading ? "Loading" : <TodoList todos={todos} removeHandler={removeTodo} />}
       <div>
       {saving ? "Saving" : (
         <>

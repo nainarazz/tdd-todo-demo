@@ -1,9 +1,12 @@
 import React from "react";
 
-const TodoList = ({ todos }) => (
+const TodoList = ({ todos, removeHandler }) => (
   <div>
     {todos.map((t, i) => (
-      <div key={i}>{t.title}</div>
+      <div key={i}>
+        <span>{t.title}</span>
+        <span data-testid={t.id} onClick={() => removeHandler(t.id)}>X</span>
+      </div>
     ))}
   </div>
 );
