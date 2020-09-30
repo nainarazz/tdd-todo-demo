@@ -40,6 +40,17 @@ function App() {
     setTodos(todos.filter(t => t.id !== id))
   }
 
+  function updateTodo(id) {
+    const newList = todos.map(todoItem => {
+      if (todoItem.id === id) {
+        const updatedItem = { ...todoItem, completed: !todoItem.completed };
+        return updatedItem;        
+      }
+      return todoItem;
+    })
+    setTodos(newList);
+  }
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -55,15 +66,15 @@ function App() {
   return (
     <div className="App">
       <h1 className='header'>My todo list</h1>
-      {loading ? "Loading" : <TodoList todos={todos} removeHandler={removeTodo} />}
+      {loading ? "Loading" : <TodoList todos={todos} removeHandler={removeTodo} updateTodo={updateTodo} />}
+      
       <div className='add-todo-form'>
-      {saving ? "Saving" : (
-        <form onSubmit={addTodo}>
-          <input type="text" onChange={onChange} />
-          <button type='submit'>Add new todo</button>
-        </form>
-      )}
-        
+        {saving ? "Saving" : (
+          <form onSubmit={addTodo}>
+            <input type="text" onChange={onChange} />
+            <button type='submit'>Add new todo</button>
+          </form>
+        )}
       </div>
     </div>
   );

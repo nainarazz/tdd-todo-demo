@@ -45,4 +45,12 @@ describe("<App /> test", () => {
     fireEvent.click(screen.getByTestId('close-btn-3'));
     expect(screen.queryByText(/Take out the trash/i)).not.toBeInTheDocument();
   });
+
+  it("todo item should be crossed out after completing", async () => {
+    fetchMock.once(JSON.stringify(mockData))
+    render(<App />);
+    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
+    fireEvent.click(screen.getByTestId('checkbox-1'));
+    expect(screen.getByText(/eat breakfast/i)).toHaveClass('completed');
+  });
 });
