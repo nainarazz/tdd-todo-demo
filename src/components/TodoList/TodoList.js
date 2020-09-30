@@ -1,15 +1,10 @@
 import React from "react";
-import styles from './TodoList.module.css'
+import TodoItem from "../TodoItem/TodoItem";
 
 const TodoList = ({ todos, removeHandler }) => (
-  <div>
-    {todos.map((t, i) => (
-      <div className={styles.itemContainer} key={i}>
-        <span>{t.title}</span>
-        <span data-testid={t.id} onClick={() => removeHandler(t.id)}>X</span>
-      </div>
-    ))}
-  </div>
+  <>
+    {todos.map((t) => <TodoItem key={t.id} todo={t} removeHandler={removeHandler} />)}
+  </>
 );
 
 export default TodoList;

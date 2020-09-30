@@ -42,7 +42,7 @@ describe("<App /> test", () => {
     fetchMock.once(JSON.stringify(mockData))
     render(<App />);
     await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
-    fireEvent.click(screen.getByTestId('3'));
-    expect(screen.queryByTestId('3')).toEqual(null)
+    fireEvent.click(screen.getByTestId('close-btn-3'));
+    expect(screen.queryByText(/Take out the trash/i)).not.toBeInTheDocument();
   });
 });
