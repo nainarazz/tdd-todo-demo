@@ -8,10 +8,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  function addTodo() {
+  function addTodo(e) {
+    e.preventDefault();
     const value = {
       userId: 3,
-      id: Math.floor(Math.random() * 100) + 1 ,
+      id: Math.floor(Math.random() * 10000) + 1 ,
       title: newTodo,
       completed: false
     };
@@ -27,7 +28,7 @@ function App() {
       .then((response) => response.json())
       .then((result) => {
         setSaving(false);
-        setTodos(todos.concat(result));
+        setTodos(todos.concat({...result, id: value.id}));
       })
   }
 
