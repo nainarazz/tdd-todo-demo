@@ -32,7 +32,7 @@ describe("<App /> test", () => {
     await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
     
     fireEvent.change(screen.getByRole("textbox"), { target: { value: 'Do math homework'}});
-    fireEvent.click(screen.getByRole("button", { name: /Add new todo/i }));
+    fireEvent.submit(screen.getByText(/Add new todo/i));
     await waitForElementToBeRemoved(() => screen.getByText(/saving/i));
     expect(screen.getByText(/Do math homework/i)).toBeInTheDocument();
 
@@ -43,6 +43,6 @@ describe("<App /> test", () => {
     render(<App />);
     await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
     fireEvent.click(screen.getByTestId('3'));
-    expect(screen.queryByText(/fugiat veniam minus/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId('3')).toEqual(null)
   });
 });

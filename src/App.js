@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TodoList from './components/TodoList'
+import TodoList from './components/TodoList/TodoList'
 import './App.css';
 
 function App() {
@@ -54,14 +54,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My todo list</h1>
+      <h1 className='header'>My todo list</h1>
       {loading ? "Loading" : <TodoList todos={todos} removeHandler={removeTodo} />}
-      <div>
+      <div className='add-todo-form'>
       {saving ? "Saving" : (
-        <>
+        <form onSubmit={addTodo}>
           <input type="text" onChange={onChange} />
-          <button onClick={addTodo}>Add new todo</button>
-        </>
+          <button type='submit'>Add new todo</button>
+        </form>
       )}
         
       </div>

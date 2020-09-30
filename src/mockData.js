@@ -2,31 +2,31 @@ const mockData = [
     {
       userId: 1,
       id: 1,
-      title: "delectus aut autem",
+      title: "Eat breakfast",
       completed: false
     },
     {
       userId: 1,
       id: 2,
-      title: "quis ut nam facilis et officia qui",
+      title: "Do laundry",
       completed: false
     },
     {
       userId: 1,
       id: 3,
-      title: "fugiat veniam minus",
+      title: "Take out the trash",
       completed: false
     },
     {
       userId: 1,
       id: 4,
-      title: "et porro tempora",
+      title: "Write a blog post",
       completed: true
     },
     {
       userId: 1,
       id: 5,
-      title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      title: "Go out for a walk",
       completed: false
     }
   ];
