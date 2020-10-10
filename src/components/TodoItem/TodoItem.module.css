@@ -11,6 +11,9 @@
 .closeBtn {
     color: red;
     font-weight: 800;
+    font-size: 16px;
+    background: none;
+    border: none;
 }
 
 .closeBtn:hover {

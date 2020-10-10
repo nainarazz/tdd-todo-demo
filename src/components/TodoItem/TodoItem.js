@@ -20,7 +20,7 @@ const TodoItem = ({ todo, removeHandler, updateTodo }) => {
                     {todo.title}
                 </label>
             </div>
-            <span className={styles.closeBtn} data-testid={`close-btn-${todo.id}`} onClick={() => removeHandler(todo.id)}>X</span>
+            <button className={styles.closeBtn} data-testid={`close-btn-${todo.id}`} onClick={() => removeHandler(todo.id)}>X</button>
         </div>
     );
 }
